@@ -1,0 +1,48 @@
+---
+root: true
+parser: '@typescript-eslint/parser'
+
+env:
+  browser: true
+  es6: true
+  node: true
+
+plugins:
+  - react
+  - '@typescript-eslint'
+  - import
+
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - plugin:@typescript-eslint/recommended
+  - prettier
+  - prettier/@typescript-eslint
+
+settings:
+  react:
+    version: detect
+
+rules:
+  react/prop-types: off
+  '@typescript-eslint/explicit-function-return-type': off
+  '@typescript-eslint/camelcase': off
+  '@typescript-eslint/no-explicit-any': off
+  '@typescript-eslint/no-parameter-properties': off
+  no-unused-vars: off
+  '@typescript-eslint/no-unused-vars':
+    - error
+    - argsIgnorePattern: ^_
+  import/no-unassigned-import: error
+  import/order: error
+
+overrides:
+  - files:
+      - '*.ts'
+      - '*.tsx'
+    rules:
+      no-dupe-class-members: off
+  - files:
+      - '*.js'
+    rules:
+      '@typescript-eslint/no-var-requires': off
